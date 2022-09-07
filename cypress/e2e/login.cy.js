@@ -1,5 +1,10 @@
 import LoginPage from "../pageObjects/loginPageObjects.js"
 describe('Login Tests ', () => {
+
+  beforeEach(() => {
+    const lp = new LoginPage();
+    lp.visit() 
+  })
   //Variables 
   var username, password, title,
   errorMessage, errorMessage1, errorMessage2, 
@@ -8,7 +13,6 @@ describe('Login Tests ', () => {
   it('Successful Login', () => {
     //intialize objects
     const lp = new LoginPage();
-    lp.visit()
     lp.login(
       username, password
     )
@@ -21,7 +25,6 @@ describe('Login Tests ', () => {
   it('Unsuccesful Login', () => {
     //intialize objects
     const lp = new LoginPage();
-    lp.visit()
     lp.loginWithoutPassword(
       username, errorMessage
     )
@@ -35,10 +38,9 @@ describe('Login Tests ', () => {
       incorrectUsername, password, errorMessage3
     )
   })
-  
+
   it('Login Ui Checks', () => {
     const lp = new LoginPage();
-    lp.visit()
     lp.loginUiChecks()
   })
 })

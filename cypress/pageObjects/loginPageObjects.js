@@ -4,14 +4,11 @@
  */
 
 /// <reference types="cypress" />
-
 class LoginPage {
-
     // Open site
     visit() {
       cy.visit('/')
     }
-
     //Input username and password
     login() {
         //fetch username and password from the json file
@@ -100,13 +97,11 @@ class LoginPage {
         cy.fixture("credentials").then((auth) => {
             var password = auth.password;
             var IncorrectUsername = auth.wrong_username;
-
             const inputUsernameField = cy.get('input[name="user-name"]')
             inputUsernameField.clear().type(IncorrectUsername)
             // input username
             const inputPasswordField = cy.get('input[name="password"]')
             inputPasswordField.type(password)
-
             const loginButton = cy.get('input[name="login-button"]')
             loginButton.click()
           });
@@ -127,8 +122,6 @@ class LoginPage {
         acceptedUserName.should('be.visible')
         const loginButton = cy.get('input[name="login-button"]')
         loginButton.should('be.visible')
-        
-
     }
 
   }

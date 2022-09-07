@@ -118,15 +118,14 @@ class LoginPage {
 
     loginUiChecks() {
         const loginLogo = cy.get('.login_logo')
-        const inputUsernameField = cy.get('input[name="user-name"]')
-        const inputPasswordField = cy.get('input[name="password"]')
-        const acceptedUserName = cy.get('.login_credentials')
-        const loginButton = cy.get('input[name="login-button"]')
-
         loginLogo.should('be.visible')
+        const inputUsernameField = cy.get('input[name="user-name"]')
         inputUsernameField.should('be.visible')
+        const inputPasswordField = cy.get('input[name="password"]')
         inputPasswordField.should('be.visible')
+        const acceptedUserName = cy.get('.login_credentials')
         acceptedUserName.should('be.visible')
+        const loginButton = cy.get('input[name="login-button"]')
         loginButton.should('be.visible')
         
 

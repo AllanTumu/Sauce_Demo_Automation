@@ -1,7 +1,11 @@
 import LoginPage from "../pageObjects/loginPageObjects.js"
-describe('Login', () => {
+describe('Login Tests ', () => {
+  //Variables 
+  var username, password, title,
+  errorMessage, errorMessage1, errorMessage2, 
+  incorrectPassword,incorrectUsername, errorMessage3;
+
   it('Successful Login', () => {
-    var username, password, title;
     //intialize objects
     const lp = new LoginPage();
     lp.visit()
@@ -15,8 +19,6 @@ describe('Login', () => {
   })
 
   it('Unsuccesful Login', () => {
-    var username, errorMessage, 
-    errorMessage1, incorrectPassword;
     //intialize objects
     const lp = new LoginPage();
     lp.visit()
@@ -26,5 +28,17 @@ describe('Login', () => {
     lp.loginWithWrongPassword(
       username, incorrectPassword, errorMessage1
     )
+    lp.loginWithoutUsername(
+      password, errorMessage2
+    )
+    lp.loginWithIncorrectUsername(
+      incorrectUsername, password, errorMessage3
+    )
+  })
+  
+  it('Login Ui Checks', () => {
+    const lp = new LoginPage();
+    lp.visit()
+    lp.loginUiChecks()
   })
 })

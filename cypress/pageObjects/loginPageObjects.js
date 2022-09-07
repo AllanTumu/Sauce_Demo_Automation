@@ -6,6 +6,7 @@
 /// <reference types="cypress" />
 
 class LoginPage {
+
     // Open site
     visit() {
       cy.visit('/')
@@ -74,6 +75,61 @@ class LoginPage {
             var errorMessage1 = data.password_matching_error;
             cy.get('h3').contains(errorMessage1)
         })
+    }
+
+    loginWithoutUsername() {
+        cy.fixture("credentials").then((auth) => {
+            var password = auth.password;
+
+            const inputUsernameField = cy.get('input[name="user-name"]')
+            inputUsernameField.clear()
+            // input username
+            const inputPasswordField = cy.get('input[name="password"]')
+            inputPasswordField.type(password)
+
+            const loginButton = cy.get('input[name="login-button"]')
+            loginButton.click()
+          });
+          cy.fixture("testData").then((data) => {
+            var errorMessage2 = data.username_required_error;
+            cy.get('h3').contains(errorMessage2)
+        })
+    }
+
+    loginWithIncorrectUsername() {
+        cy.fixture("credentials").then((auth) => {
+            var password = auth.password;
+            var IncorrectUsername = auth.wrong_username;
+
+            const inputUsernameField = cy.get('input[name="user-name"]')
+            inputUsernameField.clear().type(IncorrectUsername)
+            // input username
+            const inputPasswordField = cy.get('input[name="password"]')
+            inputPasswordField.type(password)
+
+            const loginButton = cy.get('input[name="login-button"]')
+            loginButton.click()
+          });
+          cy.fixture("testData").then((data) => {
+            var errorMessage3 = data.username_mismatch_error;
+            cy.get('h3').contains(errorMessage3)
+        })
+    }
+
+    loginUiChecks() {
+        const loginLogo = cy.get('.login_logo')
+        const inputUsernameField = cy.get('input[name="user-name"]')
+        const inputPasswordField = cy.get('input[name="password"]')
+        const acceptedUserName = cy.get('.login_credentials')
+        const loginButton = cy.get('input[name="login-button"]')
+
+        loginLogo.should('be.visible')
+        inputUsernameField.should('be.visible')
+        inputPasswordField.should('be.visible')
+        acceptedUserName.should('be.visible')
+        loginButton.should('be.visible')
+        
+
     }
 
   }

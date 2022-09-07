@@ -1,0 +1,7 @@
+{
+    "dashboard_heading": "Products",
+    "password_required_error": "Epic sadface: Password is required",
+    "password_matching_error": "Epic sadface: Username and password do not match any user in this service",
+    "username_required_error": "Epic sadface: Username is required",
+    "username_mismatch_error": "Epic sadface: Username and password do not match any user in this service"
+}

@@ -1,0 +1,28 @@
+{
+  "name": "sauce_demo_automation",
+  "version": "1.0.0",
+  "description": "End to End test for the Site Sauce Demo using cypress and Page object model.",
+  "main": "index.js",
+  "scripts": {
+    "test": "cypress open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AllanTumu/Sauce_Demo_Automation.git"
+  },
+  "keywords": [
+    "cypress",
+    "testing",
+    "javascript",
+    "typescript"
+  ],
+  "author": "Allan Tumuhimbise",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AllanTumu/Sauce_Demo_Automation/issues"
+  },
+  "homepage": "https://github.com/AllanTumu/Sauce_Demo_Automation#readme",
+  "devDependencies": {
+    "cypress": "^10.7.0"
+  }
+}

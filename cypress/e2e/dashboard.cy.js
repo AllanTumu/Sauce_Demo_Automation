@@ -18,4 +18,14 @@ describe('Dashboard Tests ', () => {
         dp.dashboardUiChecks()
       })
 
+    it('Verify product details on Dashboard page', () => {
+        const dp = new DashboardPage()
+        dp.verifyProductOnDahboardPage()
+    })
+
+    it('Verify product details on Product details page', () => {
+        const dp = new DashboardPage()
+        dp.verifyProductOnDetailsPage()
+    })
+
 })

@@ -1,4 +1,4 @@
-# Sauce_Demo_Automation
+# Sauce_Demo_Automation using Cypress
 End to End tests for the web application Sauce Demo by Sauce labs using cypress and Page object model.
 
 ## Framework Used
